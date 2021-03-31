@@ -19,5 +19,8 @@ module.exports = (controllername) => {
     if(controller.delete) {
         router.delete('/:id', controller.delete)
     }
+    router.all('*', (req,res)=>{
+        res.status(404).send('no encontrada')
+    })
     return router
 }
